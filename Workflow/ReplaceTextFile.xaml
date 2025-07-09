@@ -1,0 +1,245 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="ReplaceTextFile" this:ReplaceTextFile.in_DateTerms="[String.Empty]" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Tax" Type="InArgument(x:String)" />
+    <x:Property Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
+    <x:Property Name="in_Discount" Type="InArgument(x:String)" />
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_DateTerms" Type="InArgument(x:String)" />
+    <x:Property Name="in_PdfFile" Type="InArgument(x:String)" />
+  </x:Members>
+  <this:ReplaceTextFile.in_PdfFile>
+    <InArgument x:TypeArguments="x:String" />
+  </this:ReplaceTextFile.in_PdfFile>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>ReplaceTextFile_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities.Business</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Excel.Model</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>NPOI.Core</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="ReplaceTextFile" sap:VirtualizedContainerService.HintSize="653,5264" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="SheetName" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message Replace Template Placeholders" sap:VirtualizedContainerService.HintSize="572,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Replacing placeholder values in the template to generate the Sales Report PDF&quot;]" />
+    <Assign DisplayName="Assign SheetName" sap:VirtualizedContainerService.HintSize="572,114" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[SheetName]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[DirectCast(in_Config("SheetTemplate"), System.String)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" ProcessMode="{x:Null}" DisplayName="Excel Process Scope" ExistingProcessAction="ForceKill" sap:VirtualizedContainerService.HintSize="572,4790" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1" MacroSettings="EnableAll" ShowExcelWindow="False">
+      <ueab:ExcelProcessScopeX.Body>
+        <ActivityAction x:TypeArguments="ui:IExcelProcess">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="ui:IExcelProcess" Name="ExcelProcessScopeTag" />
+          </ActivityAction.Argument>
+          <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" SensitivityLabel="{x:Null}" AutoSave="False" CreateNewFile="False" DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="538,4671" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_2" ResizeWindow="None" SensitivityOperation="None" WorkbookPath="[DirectCast(in_Config(&quot;FileTemplate&quot;), System.String)]">
+            <ueab:ExcelApplicationCard.Body>
+              <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="Excel" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Add Values In Template" sap:VirtualizedContainerService.HintSize="504,4402" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:Int32" Name="IndexType" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ueab:FindReplaceValueX FoundAt="{x:Null}" DisplayName="Replace Value Id Vendor" sap:VirtualizedContainerService.HintSize="470,266" sap2010:WorkflowViewState.IdRef="FindReplaceValueX_2" LookIn="Values" Operation="ReplaceAll" ReplaceWith="[in_TransactionItem.SpecificContent(&quot;IdVendor&quot;).ToString]" ValueToFind="[DirectCast(in_Config(&quot;ReplaceIdVendor&quot;), System.String)]" WhereToSearch="[Excel.Sheet(SheetName)]" />
+                  <ueab:FindReplaceValueX FoundAt="{x:Null}" DisplayName="Replace Value Date Terms" sap:VirtualizedContainerService.HintSize="470,314" sap2010:WorkflowViewState.IdRef="FindReplaceValueX_3" LookIn="Values" Operation="Replace" ReplaceWith="[DateTime.Today.ToString(&quot;dd/MM/yyyy&quot;)]" ValueToFind="[DirectCast(in_Config(&quot;ReplaceDate&quot;), System.String)]" WhereToSearch="[Excel.Sheet(SheetName)]" />
+                  <ueab:FindReplaceValueX FoundAt="{x:Null}" DisplayName="Replace Value Name Vendor" sap:VirtualizedContainerService.HintSize="470,314" sap2010:WorkflowViewState.IdRef="FindReplaceValueX_9" LookIn="Values" Operation="Replace" ReplaceWith="[in_TransactionItem.SpecificContent(&quot;NameVendor&quot;).ToString]" ValueToFind="[DirectCast(in_Config(&quot;ReplaceNameVendor&quot;), System.String)]" WhereToSearch="[Excel.Sheet(SheetName)]" />
+                  <ueab:FindReplaceValueX FoundAt="{x:Null}" DisplayName="Replace Value Street" sap:VirtualizedContainerService.HintSize="470,314" sap2010:WorkflowViewState.IdRef="FindReplaceValueX_8" LookIn="Values" Operation="Replace" ReplaceWith="[in_TransactionItem.SpecificContent(&quot;Street&quot;).ToString]" ValueToFind="[DirectCast(in_Config(&quot;ReplaceStreet&quot;), System.String)]" WhereToSearch="[Excel.Sheet(SheetName)]" />
+                  <ueab:FindReplaceValueX FoundAt="{x:Null}" DisplayName="Replace Value Full Location" sap:VirtualizedContainerService.HintSize="470,314" sap2010:WorkflowViewState.IdRef="FindReplaceValueX_7" LookIn="Values" Operation="Replace" ReplaceWith="[String.Concat(in_TransactionItem.SpecificContent(&quot;District&quot;).ToString, &quot;,&quot;,in_TransactionItem.SpecificContent(&quot;City&quot;).ToString, &quot;,&quot;, in_TransactionItem.SpecificContent(&quot;State&quot;).ToString)]" ValueToFind="[DirectCast(in_Config(&quot;ReplaceFullLocation&quot;), System.String)]" WhereToSearch="[Excel.Sheet(SheetName)]" />
+                  <ueab:FindReplaceValueX FoundAt="{x:Null}" DisplayName="Replace Value Numbe rVendor" sap:VirtualizedContainerService.HintSize="470,314" sap2010:WorkflowViewState.IdRef="FindReplaceValueX_6" LookIn="Values" Operation="Replace" ReplaceWith="[in_TransactionItem.SpecificContent(&quot;NumberVendor&quot;).ToString]" ValueToFind="[DirectCast(in_Config(&quot;ReplaceNumberVendor&quot;), System.String)]" WhereToSearch="[Excel.Sheet(SheetName)]" />
+                  <ueab:FindReplaceValueX FoundAt="{x:Null}" DisplayName="Replace Value Mail Vendor" sap:VirtualizedContainerService.HintSize="470,314" sap2010:WorkflowViewState.IdRef="FindReplaceValueX_5" LookIn="Values" Operation="Replace" ReplaceWith="[in_TransactionItem.SpecificContent(&quot;MailVendor&quot;).ToString]" ValueToFind="[DirectCast(in_Config(&quot;ReplaceMailVendor&quot;), System.String)]" WhereToSearch="[Excel.Sheet(SheetName)]" />
+                  <ueab:WriteCellX Cell="[Excel.Sheet(SheetName).Cell(DirectCast(in_Config(&quot;CellTerms&quot;), System.String))]" DisplayName="Write Cell Terms With Date" sap:VirtualizedContainerService.HintSize="470,191" sap2010:WorkflowViewState.IdRef="WriteCellX_1" Value="[String.Format(DirectCast(in_Config(&quot;TextTerms&quot;), System.String), in_DateTerms)]" />
+                  <If Condition="[Not String.IsNullOrEmpty(in_Tax)]" DisplayName="If Tax Is Not Null Or Empyt" sap:VirtualizedContainerService.HintSize="470,405" sap2010:WorkflowViewState.IdRef="If_1">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If.Then>
+                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,242" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ueab:WriteCellX Cell="[Excel.Sheet(SheetName).Cell(DirectCast(in_Config(&quot;CellTax&quot;), System.String))]" DisplayName="Write Cell Tax" sap:VirtualizedContainerService.HintSize="434,182" sap2010:WorkflowViewState.IdRef="WriteCellX_2" Value="[in_Tax]" />
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,25" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                  <If Condition="[Not String.IsNullOrEmpty(in_Discount)]" DisplayName="If Discount Is Not Null Or Empyt" sap:VirtualizedContainerService.HintSize="470,469" sap2010:WorkflowViewState.IdRef="If_2">
+                    <If.Then>
+                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,242" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ueab:WriteCellX Cell="[Excel.Sheet(SheetName).Cell(DirectCast(in_Config(&quot;CellDiscount&quot;), System.String))]" DisplayName="Write Cell Discount" sap:VirtualizedContainerService.HintSize="434,182" sap2010:WorkflowViewState.IdRef="WriteCellX_3" Value="[in_Discount]" />
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,89" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                  <ui:ForEach x:TypeArguments="x:String" CurrentIndex="[IndexType]" DisplayName="For Each CurrentItem" sap:VirtualizedContainerService.HintSize="470,945" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[in_TransactionItem.SpecificContent(&quot;ItemType&quot;).ToString.Split(&quot;,&quot;c)]">
+                    <ui:ForEach.Body>
+                      <ActivityAction x:TypeArguments="x:String">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="x:String" Name="CurrentItem" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="468,815" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ueab:WriteCellX AutoIncrementRow="True" Cell="[Excel.Sheet(SheetName).Cell(DirectCast(in_Config(&quot;FirstInvoiceNumber&quot;), System.String))]" DisplayName="Write Cell Invoice And Item Type" sap:VirtualizedContainerService.HintSize="434,191" sap2010:WorkflowViewState.IdRef="WriteCellX_4" Value="[String.Format(in_TransactionItem.SpecificContent(&quot;InvoiceNumber&quot;).ToString.Split(&quot;,&quot;c)(IndexType), &quot;/&quot;, CurrentItem)]" />
+                          <ueab:WriteCellX AutoIncrementRow="True" Cell="[Excel.Sheet(SheetName).Cell(DirectCast(in_Config(&quot;FirstUnitCostBrl&quot;), System.String))]" DisplayName="Write Cell Unit Cost Brl" sap:VirtualizedContainerService.HintSize="434,191" sap2010:WorkflowViewState.IdRef="WriteCellX_5" Value="[in_TransactionItem.SpecificContent(&quot;UnitCostBrl&quot;).ToString.Split(&quot;,&quot;c)(IndexType)]" />
+                          <ueab:WriteCellX AutoIncrementRow="True" Cell="[Excel.Sheet(SheetName).Cell(DirectCast(in_Config(&quot;FirstQty&quot;), System.String))]" DisplayName="Write Cell Qty" sap:VirtualizedContainerService.HintSize="434,191" sap2010:WorkflowViewState.IdRef="WriteCellX_6" Value="[in_TransactionItem.SpecificContent(&quot;Qty&quot;).ToString.Split(&quot;,&quot;c)(IndexType)]" />
+                          <ueab:WriteCellX AutoIncrementRow="True" Cell="[Excel.Sheet(SheetName).Cell(DirectCast(in_Config(&quot;FirstTotalBrl&quot;), System.String))]" DisplayName="Write Cell Total Brl" sap:VirtualizedContainerService.HintSize="434,182" sap2010:WorkflowViewState.IdRef="WriteCellX_7" Value="[in_TransactionItem.SpecificContent(&quot;TotalBrl&quot;).ToString.Split(&quot;,&quot;c)(IndexType)]" />
+                        </Sequence>
+                      </ActivityAction>
+                    </ui:ForEach.Body>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:ForEach>
+                  <ueab:SaveAsPdfX EndPage="{x:Null}" StartPage="{x:Null}" DestinationPdfPath="[in_PdfFile]" DisplayName="Save Excel File As PDF" sap:VirtualizedContainerService.HintSize="470,182" sap2010:WorkflowViewState.IdRef="SaveAsPdfX_1" SaveQuality="StandardQuality" Workbook="[Excel]" />
+                </Sequence>
+              </ActivityAction>
+            </ueab:ExcelApplicationCard.Body>
+          </ueab:ExcelApplicationCard>
+        </ActivityAction>
+      </ueab:ExcelProcessScopeX.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ueab:ExcelProcessScopeX>
+    <ui:LogMessage DisplayName="Log Message - Successfully Generated PDF" sap:VirtualizedContainerService.HintSize="572,164" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[String.Format(&quot;PDF file generated successfully: {0}.&quot;, in_PdfFile)]" />
+  </Sequence>
+</Activity>
